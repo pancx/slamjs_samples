@@ -26,8 +26,8 @@ var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true
 <script>
 var Module = {
   preRun: [function() {
-    Module.FS_createPreloadedFile('/', 'ORBvoc.bin', '../data/ORBvoc.bin', true, false);
-    Module.FS_createPreloadedFile('/', 'c270.yaml', '../data/c270.yaml', true, false);
+    Module.FS_createPreloadedFile('/', 'ORBvoc.bin', 'ORBvoc.bin', true, false);
+    Module.FS_createPreloadedFile('/', 'c270.yaml', 'c270.yaml', true, false);
   }],
   _main: function() {opencvIsReady();}
 };
