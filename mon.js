@@ -22,8 +22,8 @@ let info = document.getElementById('info');
 
 video.oncanplay = function() {
     if (!streaming) {
-      videoWidth = 640; //video.videoWidth;
-      videoHeight = 480; //video.videoHeight;
+      videoWidth = video.videoWidth;
+      videoHeight = video.videoHeight;
       video.setAttribute("width", videoWidth);
       video.setAttribute("height", videoHeight);
       canvasOutput.width = videoWidth;
@@ -35,7 +35,7 @@ video.oncanplay = function() {
 
 function startCamera() {
   if (streaming) return;
-  navigator.mediaDevices.getUserMedia({video: true, audio: false})
+  navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
     .then(function(s) {
     stream = s;
     video.srcObject = s;
