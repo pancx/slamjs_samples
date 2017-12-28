@@ -149,10 +149,6 @@ function initUI() {
 
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
-  if (!featuresReady) {
-    console.log('Requred features are not ready.');
-    return;
-  }
   info.innerHTML = '';
   initUI();
   slam = new Module.SLAM('ORBvoc.bin', 'TUM2.yaml', Module.RGBD, false);
