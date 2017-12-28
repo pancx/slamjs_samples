@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>RGBD SLAM Sample</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="info" class="text-center">
+  OpenCV.js is loading...
+</div>
+<div id="container">
+  <canvas class="center-block" id="canvasOutput" width=640 height=480></canvas>
+</div>
+<div class="invisible">
+  <video id="videoD" class="hidden" src="d_2_slam3_20fps.mp4" muted>Your browser does not support the video tag.</video>
+  <video id="video" class="hidden" src="rgb_2_slam3_20fps.mp4" muted>Your browser does not support the video tag.</video>
+</div>
+<script src="libs/adapter-latest.js"></script>
+<script src="libs/stats.min.js"></script>
+<script src="libs/dat.gui.min.js"></script>
+<script src="libs/utils.js"></script>
+<script>
+var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true});
+</script>
+<script>
+var Module = {
+  preRun: [function() {
+    Module.FS_createPreloadedFile('/', 'ORBvoc.bin', 'ORBvoc.bin', true, false);
+    Module.FS_createPreloadedFile('/', 'TUM2.yaml', 'TUM2.yaml', true, false);
+  }],
+  _main: function() {opencvIsReady();}
+};
+</script>
+<script src="opencv_js.js"></script>
+<script src="rgbd.js"></script>
+<script>
+//cv = cv(Module);
+</script>
+</body>
+</html>

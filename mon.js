@@ -20,19 +20,6 @@ let trStatus = -2;
 
 let info = document.getElementById('info');
 
-video.oncanplay = function() {
-    if (!streaming) {
-      videoWidth = video.videoWidth;
-      videoHeight = video.videoHeight;
-      video.setAttribute("width", videoWidth);
-      video.setAttribute("height", videoHeight);
-      canvasOutput.width = videoWidth;
-      canvasOutput.height = videoHeight;
-      streaming = true;
-    }
-    startVideoProcessing();
-};
-
 function startCamera() {
   if (streaming) return;
   navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
@@ -92,6 +79,7 @@ let count = 0;
 function processVideo() {
   stats.begin();
   if(video.ended) {
+    slam.Shutdown();
     return;
   }
   canvasInputCtx.drawImage(video, 0, 0, videoWidth, videoHeight);
