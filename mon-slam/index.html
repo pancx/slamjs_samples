@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>SLAM Sample</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="info" class="text-center">
+  OpenCV.js is loading...
+</div>
+<div id="container">
+  <canvas class="center-block" id="canvasOutput" width=640 height=480></canvas>
+</div>
+<div class="invisible">
+  <video id="video" class="hidden" muted>Your browser does not support the video tag.</video>
+</div>
+<script src="../libs/adapter-latest.js"></script>
+<script src="../libs/stats.min.js"></script>
+<script src="../libs/dat.gui.min.js"></script>
+<script src="../libs/utils.js"></script>
+<script>
+var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true});
+</script>
+<script>
+var Module = {
+  preRun: [function() {
+    Module.FS_createPreloadedFile('/', 'ORBvoc.bin', '../data/ORBvoc.bin', true, false);
+    Module.FS_createPreloadedFile('/', 'c270.yaml', '../data/c270.yaml', true, false);
+  }],
+  _main: function() {opencvIsReady();}
+};
+</script>
+<script src="../opencv_js.js"></script>
+<script src="js/index.js"></script>
+<script>
+//cv = cv(Module);
+</script>
+</body>
+</html>
