@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
   <link href="css/doxygen.css" rel="stylesheet" type="text/css" />
   <title>ORB-SLAM2.js Demos</title>
-
 </head>
-
 <body>
 <div class="header">
   <div class="headertitle">
@@ -28,6 +26,10 @@
     </ul>
   </div>
 </div>
+To run the samples, your browser need spport Web Worker and SharedArrayBuffer.<br>
+The monocular sample will obtain images from WebRTC and your camera.<br>
+The RGB-D sample will obtain images from rgb video file and depth video file. <br>The videos are from <a href="https://vision.in.tum.de/data/datasets/rgbd-dataset/download" target="_blank">TUM CVG dataset</a>.<br>
+Console will print the tracking state, camera pose and the numbers of key points and map points.
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
